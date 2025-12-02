@@ -85,7 +85,8 @@ const Contact = () => {
 
               {status === "sent" && (
                 <span className="success-text">
-                  Mail app opened — send your message there.
+                  {/* Mail app opened — send your message there. */}
+                  Your message is submitted!
                 </span>
               )}
             </div>
