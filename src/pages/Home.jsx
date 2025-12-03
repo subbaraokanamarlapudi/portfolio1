@@ -1,8 +1,23 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 import '../styles/Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleViewProjects = () => {
+    const el = document.getElementById("projects");
+    if (el) {
+      const offset = 72;  
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+      return;
+    }
+
+    
+    navigate("/projects");
+  };
+
   return (
     <div id="home" className="home-section">
       <p className="home-intro">Hi, my name is</p>
@@ -15,9 +30,7 @@ const Home = () => {
       </p>
 
       <div>
-        <Link to="projects" smooth={true} duration={500} className="group">
-          <button className="home-btn">View My Work</button>
-        </Link>
+        <button onClick={handleViewProjects} className="home-btn">View My Work</button>
       </div>
     </div>
   );
